@@ -10,7 +10,16 @@ public class ArrayDrills {
      *           firstLast(6, [1,2,3]); // Should return false
      */
     public Boolean firstLast(Integer value, Integer[] input){
-        return null;
+        boolean isFirstOrLast = false;
+        for (int i = 0; i < input.length; i++) {
+            if(input[i] == value ) {
+                isFirstOrLast = true;
+            }
+            if (input[input.length - 1] == value) {
+                isFirstOrLast = true;
+            }
+        }
+        return isFirstOrLast ;
     }
 
     /**
@@ -19,7 +28,13 @@ public class ArrayDrills {
      *           sameFirstLast([1,2,1]); // Should return true
      */
     public Boolean sameFirstLast(Integer[] input){
-        return null;
+        boolean firstIsSameAsLast = false;
+        for (int i = 0; i < input.length; i++) {
+            if (input[0] == input[input.length - 1]) {
+                firstIsSameAsLast = true;
+            }
+        }
+        return firstIsSameAsLast;
     }
 
 
@@ -30,7 +45,15 @@ public class ArrayDrills {
      *           commonEnd([1, 2, 3], [7, 3, 2]); // Should return false
      */
     public Boolean commonEnd(Integer[] input1, Integer[] input2){
-        return null;
+        boolean sameFirstAsLast = false;
+        for (int i = 0; i < input1.length; i++) {
+            for (int j = 0; j < input2.length; j++) {
+                if (input1[0] == input2[0] || input1[input1.length - 1] == input2[input2.length - 1]) {
+                 sameFirstAsLast = true;
+                }
+            }
+        }
+        return sameFirstAsLast;
     }
 
     /**
@@ -39,7 +62,14 @@ public class ArrayDrills {
      *           rotateLeft([5, 11, 9]); // Should return [11,9,5]
      */
     public Integer[] rotateLeft(Integer[] input){
-        return null;
+        Integer[] rotatedArray = new Integer[input.length];
+        for (int i = 0; i < input.length; i++) {
+            if (i == 0) {
+                rotatedArray[rotatedArray.length - 1] = input[i];
+            }
+            rotatedArray[i] = input[i + 1];
+        }
+        return rotatedArray;
     }
 
 
@@ -50,7 +80,15 @@ public class ArrayDrills {
      *           maxValue([5, 11, 9]); // Should return [11,11,11]
      */
     public Integer[] maxValue(Integer[] input){
-        return null;
+        Integer[] maxArray = new Integer[input.length];
+        int max = input[0];
+        for (int i = 0; i < input.length; i++){
+            max = (input[i] > max) ? input[i] : max;
+        }
+        for (Integer integer : maxArray) {
+            integer = max;
+        }
+        return maxArray;
     }
 
 
