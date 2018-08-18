@@ -12,7 +12,7 @@ public class ArrayDrills {
     public Boolean firstLast(Integer value, Integer[] input){
         boolean isFirstOrLast = false;
         for (int i = 0; i < input.length; i++) {
-            if(input[i] == value ) {
+            if(input[0] == value ) {
                 isFirstOrLast = true;
             }
             if (input[input.length - 1] == value) {
@@ -63,7 +63,7 @@ public class ArrayDrills {
      */
     public Integer[] rotateLeft(Integer[] input){
         Integer[] rotatedArray = new Integer[input.length];
-        for (int i = 0; i < input.length; i++) {
+        for (int i = 0; i < input.length - 1; i++) {
             if (i == 0) {
                 rotatedArray[rotatedArray.length - 1] = input[i];
             }
@@ -82,11 +82,12 @@ public class ArrayDrills {
     public Integer[] maxValue(Integer[] input){
         Integer[] maxArray = new Integer[input.length];
         int max = input[0];
-        for (int i = 0; i < input.length; i++){
+        for (int i = 0; i < input.length; i++) {
             max = (input[i] > max) ? input[i] : max;
         }
-        for (Integer integer : maxArray) {
-            integer = max;
+
+        for (int i = 0; i < maxArray.length; i++) {
+            maxArray[i] = max;
         }
         return maxArray;
     }
@@ -99,6 +100,7 @@ public class ArrayDrills {
      *           middleWay([5, 1, 2, 9], [3, 4, 5, 5]); // Should return [3, 9]
      */
     public Integer[] middleWay(Integer[] input1, Integer[] input2){
+
         return null;
     }
 
@@ -109,7 +111,17 @@ public class ArrayDrills {
      * Return the array which has the largest sum. In event of a tie, return a.
      */
     public Integer[] biggerTwo(Integer[] a, Integer[] b){
-        return null;
+        int largest = (a[0] < b[0]) ? a[0] : b[0];
+        Integer[] bigger;
+        int sumA = 0;
+        int sumB = 0;
+        for (int i = 0; i < a.length; i++) {
+            System.out.println(a[i] + ": " + b[i]);
+            sumA += a[i];
+            sumB += b[i];
+        }
+        bigger = (sumA > sumB) ? a : (sumA == sumB) ? a : b;
+        return bigger;
     }
 
     /**
@@ -119,6 +131,19 @@ public class ArrayDrills {
      *           midThree([8, 6, 7, 5, 3, 0, 9]); // Should return [7, 5, 3]
      */
     public Integer[] midThree(Integer[] nums){
-        return null;
+        Integer[] midArray = new Integer[3];
+        int middle = (nums.length / 2) + 1;
+        int a = 0, b = 1, c = 2;
+
+        for (int i = 0; i < midArray.length; i++) {
+            if (nums.length == 3) {
+                midArray[i] = nums[i];
+            } else {
+                midArray[a] = nums[middle - 2];
+                midArray[b] = nums[middle -1];
+                midArray[c] = nums[middle];
+            }
+        }
+        return midArray;
     }
 }
